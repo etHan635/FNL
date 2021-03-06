@@ -5,6 +5,7 @@ Ethan Hanley 40290095
 
 ## Contents
 This repository contains the 'source code' deliverable for the project.
+Note that the data itself has been excluded due to excessive upload size.
 
 # 1028FNL
 
