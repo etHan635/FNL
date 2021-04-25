@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formalisation Tool</title>
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/context_menu.css" rel="stylesheet" type="text/css">
+    <link href="css/jsonElements.css" rel="stylesheet" type="text/css">
+    <script src="scripts/json_to_html.js"></script>
+    <script src="scripts/html_to_json.js"></script>
+    <script src="scripts/crud_operations.js"></script>
+    <script src="scripts/context_menu.js"></script>
+    <script>
+        var emptyStructs = {
+        }
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="head">
+            <h1>JSON Editor</h1>
+            <!-- Menu Options -->
+            <button onclick="newJson();">New</button>
+            <button onclick="document.getElementById('importedFile').click();">Import</button>
+            <input id="importedFile" type="file" accept="text/json" onchange="importJson();"></button>
+            <button onclick="previewJson();">Preview</button>
+            <button onclick="downloadJson();">Download</button><br>
+            <!-- Struct Menu Options -->
+            <button onclick="document.getElementById('importedStructsFile').click();">Import Structs</button>
+            <input id="importedStructsFile" type="file" accept="text/json" onchange="importStructs();"></button>
+            <button onclick="downloadStructs();">Download Structs</button><br><br>
+            <!-- Instructions -->
+            <p>Press <b>New</b> to create a new json structure, or 'Import' to import an existing file.</p>
+            <p>Click <b>Preview</b> to preview what the data structure will look like in JSON form, and <b>Download</b>
+                to download this file.</p>
+            <p>Click <b>Import Structs</b> or <b>Export Structs</b> to import/export your saved structs respectively.
+            </p>
+            <hr>
+            <p>Primitive values can be edited using their input fields.</p>
+            <p>Right clicking an element can give you the option to add children, change the key, or delete the element.
+            </p>
+            <p>This menu will also enable you to save an object as a struct, which can then be duplicated at any time
+                via the 'add/struct/' menu option.</p>
+        </div>
+        <div id="main">
+            <div id="workAreaOuter">
+                <h2>Editor</h2>
+                <!-- This is where the JSON file being worked on will be displayed -->
+                <div id="workAreaInner">
+
+                </div>
+            </div>
+            <div id="previewOuter">
+                <h2>Preview</h2>
+                <!-- This is where a preview of the current structure will be displayed (not a live copy, need to press 'Preview' to update) -->
+                <pre id="previewInner"></pre>
+            </div>
+        </div>
+        <!-- The contextmenu which appears when selecting a JSON element. Note that the menu options are dynamic. -->
+        <div id="mainMenu" class="menu">
+            <ul>
+                <p class="menuTitle">Key</p>
+                <li id="appendToTarget">
+                    <span>add</span>
+                    <!-- Submenu for all datatypes available -->
+                    <div id="addMenu" class="menu">
+                        <ul>
+                            <li id="appendStruct">
+                                <span>struct</span>
+                                <!-- Submenu for all struct types available -->
+                                <div id="addStructMenu" class="menu">
+                                    <ul>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- Default supported types -->
+                            <li onclick="appendToTarget('object')">object</li>
+                            <li onclick="appendToTarget('array')">array</li>
+                            <li onclick="appendToTarget('string')">string</li>
+                            <li onclick="appendToTarget('number')">number</li>
+                            <li onclick="appendToTarget('boolean')">boolean</li>
+                            <li onclick="appendToTarget('reference')">reference</li>
+                        </ul>
+                    </div>
+                </li>
+                <li id="renameTarget" onclick="renameTarget();">rename</li>
+                <li id="saveTarget" onclick="saveTarget();">save as struct</li>
+                <li id="deleteTarget" onclick="deleteTarget();">delete</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

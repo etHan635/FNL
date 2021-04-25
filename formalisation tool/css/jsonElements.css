@@ -1,0 +1,78 @@
+/*
+    The CSS relating to the UI representing the JSON structure
+*/
+.jsonKeyValuePair{
+    margin-bottom: 5px;    
+}
+
+.jsonKey, .jsonValue{      
+    margin-right: 5px;
+    min-height: 20px;
+}
+
+.jsonKey{
+    vertical-align: top;
+}.jsonKey:after{
+    content: ": ";
+}
+
+.jsonValue{
+    margin-bottom: 10px;
+    padding: 0px 5px;     
+}
+.jsonValue:last-child{
+    margin-bottom: 0px;
+}
+/*Show object, array, and struct as embedded to highlight how fields are contained within*/
+.jsonValue[data-type="object"], .jsonValue[data-type="array"], .jsonValue[data-type="struct"]{    
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;    
+}
+/*Left borders for visual distinction between the composite types*/
+.jsonValue[data-type="object"]{
+    border-left: 3px solid cornflowerblue; 
+    border-radius: 10px;
+}
+.jsonValue[data-type="array"]{
+    border-left: 3px dotted tomato;
+}
+.jsonValue[data-type="struct"]{
+    border-left: 3px solid white;
+}
+/*Make refs stand out from strings as much as possible, with solid colour background, rounded corners etc.*/
+.jsonValue[data-type="reference"]{
+    border: none;
+    border-radius: 10px;
+    padding: 0px 10px;
+    background-color: teal;
+    color: white;
+}
+
+/*Highlight the keys of different types, mimicing the syntax highlighting features of IDEs*/
+.jsonKey[data-type="object"]{
+    color: cornflowerblue;
+}
+.jsonKey[data-type="array"]{
+    color: tomato;
+}
+.jsonKey[data-type="string"]{
+    color: darkorange;
+}
+.jsonKey[data-type="number"]{
+    color: chartreuse;
+}
+.jsonKey[data-type="boolean"]{
+    color: violet;
+}
+.jsonKey[data-type="struct"]{
+    color:white;
+}
+.jsonKey[data-type = "reference"]{
+    color: turquoise;
+}
+
+/*Add dead weight to the root as a ramshackle fix to the contextmenu going off screen! */
+#root{
+    padding-bottom: 100px;
+}

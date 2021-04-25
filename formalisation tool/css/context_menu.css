@@ -1,0 +1,52 @@
+/*
+    CSS for the context-menu. Largely self-explanatory.
+*/
+.menu{
+    text-align: center;    
+    max-width: 500px;
+    z-index: 10;
+    position: fixed;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 4px 5px 3px rgba(0, 0, 0, 0.2);
+}
+.menu ul{
+    list-style: none;
+    padding: 0px 0;
+}
+.menu ul li{    
+    padding: 10px 10px 10px 10px;
+    cursor: pointer;
+}
+.menu ul li:hover{
+    background-color: #eee;
+}
+.menu ul li.disabled{
+    display: none;
+}
+
+.menuTitle{
+    font-style: italic;
+    overflow-wrap: break-word;
+    padding: 5px;
+    border-bottom: 1px #ddd solid;
+}
+
+/*Show and hide submenus depending upon whether cursor is over their parent list items*/
+#addMenu{
+    margin-left: 20px;
+    display: none;
+}
+
+#appendToTarget:hover #addMenu{
+    display: inline-block;
+}
+
+#addStructMenu{
+    margin-left: 10px;
+    display: none;
+}
+
+#appendStruct:hover #addStructMenu{
+    display: inline-block;
+}
