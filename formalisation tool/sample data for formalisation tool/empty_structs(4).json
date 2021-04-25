@@ -1,0 +1,1 @@
+{"person":{"forename":"","surname":"","$type":"person"},"action":{"subject":{"$ref":"reference body goes here..."},"verb":"","object":{"$ref":"reference body goes here..."},"$type":"action"},"object":{"name":"","attributes":[],"$type":"object"},"group":{"type":"","members":[],"$type":"group"}}
